@@ -118,3 +118,7 @@ Converts a time from a source timezone to a target timezone.
     *   `source` (object): Details of the time in the source timezone (`timezone`, `datetime`).
     *   `target` (object): Details of the converted time in the target timezone (`timezone`, `datetime`).
     *   `time_difference` (string): The difference between the target and source timezone offsets (e.g., `+8h`, `-5h`, `+5.75h`). 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
