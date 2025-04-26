@@ -18,9 +18,6 @@ import { DateTime, Settings, IANAZone } from 'luxon';
 interface TimeResult {
   timezone: string;
   datetime: string;
-  // Note: date-fns-tz doesn't directly expose DST status easily like Python's .dst(),
-  // determining precise DST requires more complex checks or potentially another library.
-  // We'll omit is_dst for simplicity in this translation.
 }
 
 interface TimeConversionResult {
@@ -47,7 +44,6 @@ function getCurrentTime(timezoneName: string): TimeResult {
   const nowInZone = DateTime.now().setZone(timezoneName);
   return {
     timezone: timezoneName,
-    // Format similar to Python's isoformat(timespec="seconds")
     datetime: nowInZone.toISO({ includeOffset: true, suppressMilliseconds: true }) ?? 'Invalid Date',
   };
 }
@@ -175,8 +171,6 @@ function buildMcpServer(): McpServer {
         }
     }
   );
-
-  // Note: Removed previous example resource and prompt.
 
   return server;
 }
